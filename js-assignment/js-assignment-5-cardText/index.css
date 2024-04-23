@@ -1,0 +1,50 @@
+
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container{
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  color: white;
+}
+
+.form {    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(180deg, #0f0e0f, #b9ccb9);
+  padding: 40px 150px;
+  border-radius: 20px;
+  width: fit-content;
+  gap: 10px;
+  border: 1px solid;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  cursor: pointer;
+    }
+input:hover{
+  background-color: #afccbe;
+}
+input:active{
+ background-color: #1f2e1f;
+}
+input, select{
+padding: 5px;
+cursor: pointer;
+}
+
+select:hover{
+  background-color: #afccbe;
+}
+select:active{
+  background-color: #1f2e1f;
+}

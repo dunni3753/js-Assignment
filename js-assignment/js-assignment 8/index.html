@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validation Form</title>
+  <style>
+    .container {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      justify-items: center;
+    }
+
+    input {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Validation Form</h2>
+    <form id="validationForm">
+      <input type="text" id="firstName" placeholder="First Name.">
+      <p id="validateFirstName"></p>
+
+      <input type="text" id="lastName" placeholder="Last Name.">
+      <p id="validateLastName"></p>
+
+      <input id="email" placeholder="Enter Your Email Here.">
+      <p id="validateEmail"></p>
+
+      <input id="age" type="date" placeholder="Enter Your Age Here.">
+      <p id="validateAge"></p>
+
+      <button id="signUp" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script src="/index.js">
+
+  </script>
+
+</body>
+
+</html>

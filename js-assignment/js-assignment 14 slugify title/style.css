@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.post {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.post h2 {
+  margin-top: 0;
+}
+
+.post p {
+  margin-top: 5px;
+}
+
+.post img {
+  max-width: 100%;
+  height: auto;
+}

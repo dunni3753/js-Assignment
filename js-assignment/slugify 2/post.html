@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="flex flex-col m-auto mt-5 border-none rounded w-[950px] gap-5">
+    <h1 class="cursor-pointer text-blue-700 mt-5 text-2xl">Title</h1>
+
+    <h1 class="font-bolder text-3xl" id="post-title"></h1>
+
+    <section class="flex flex-col gap-5">
+      <p>
+        By <span id="post-author"></span> | Published on
+        <span id="post-date"></span> | 2 min read
+      </p>
+      <div class="flex w-100 h-50 gap-5">
+        <img src="/assets/Rectangle 49.png" id="post-image" alt="" />
+      </div>
+      <p id="post-content"></p>
+    </section>
+  </div>
+  <script>
+    async function getPost() {
+      let postTitle = document.getElementById("post-title");
+      let postContent = document.getElementById("post-content");
+      let postAuthor = document.getElementById("post-author");
+      let postDate = document.getElementById("post-date");
+      let postImage = document.getElementById("post-ìmage");
+
+      let id = window.location.search.split("=")[1];
+      let post = await fetch(
+        "https://6601401a87c91a11641a672f.mockapi.io/posts/" + id
+      )
+        .then((response) => response.text())
+        .then((result) => {
+          return JSON.parse(result);
+        });
+
+      postTitle.innerHTML = post.title;
+      postAuthor.innerHTML = post.author;
+      postDate.innerHTML = post.timestamp;
+      postImage.innerHTML = post.Image;
+      postContent.innerHTML = post.content;
+    }
+
+    getPost();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Post</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <a href="#">js assignment 13 blog site</a>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href="blogs.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div id="post-content"></div>
+  </div>
+
+  <script src="/scripts.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const postId = urlParams.get("id");
+
+      // Sample data - replace this with actual data from your backend or API
+      const post = {
+        id: 1,
+        title: "  The Benefits of Regular Exercise",
+        content: "Regular exercise offers a multitude of benefits for both the body and mind. From improving cardiovascular health and strengthening muscles to boosting mood and reducing stress, physical activity plays a crucial role in overall well-being. Engaging in regular exercise can also help manage weight, increase energy levels, and promote better sleep quality. Whether it's going for a jog, practicing yoga, or hitting the gym, finding activities that you enjoy can make it easier to stick to a consistent exercise routine. Remember, even small amounts of physical activity can make a big difference in your health and quality of life.",
+        image: "asset/exercise 3.jpeg"
+      };
+      /*{
+        id: 2,
+        title: "The Art of Mindful Eating",
+        content: "Mindful eating involves paying full attention to the sensory experience of eating, including the taste, texture, and aroma of food, as well as the body's hunger and satiety cues. By slowing down and savoring each bite, we can better appreciate the flavors and nourishment that food provides. Mindful eating also encourages us to tune into our body's hunger and fullness signals, helping prevent overeating and promote healthier eating habits. Incorporating mindfulness practices such as deep breathing and mindful awareness into mealtime rituals can enhance our connection to food and foster a more positive relationship with eating. As a result, we can enjoy meals more fully and make healthier choices that support our overall well-being.",
+        image: "asset/healthy food.jpg"
+
+      };*/
+
+      const postContent = document.getElementById("post-content");
+
+      const postElement = document.createElement("div");
+      postElement.classList.add("post");
+
+      const postImage = document.createElement("img");
+      postImage.src = post.image;
+      postImage.alt = "Post Image";
+
+      const postTitle = document.createElement("h2");
+      postTitle.textContent = post.title;
+
+      const postContentParagraph = document.createElement("p");
+      postContentParagraph.textContent = post.content;
+
+      postElement.appendChild(postImage);
+      postElement.appendChild(postTitle);
+      postElement.appendChild(postContentParagraph);
+      postContent.appendChild(postElement);
+    });
+  </script>
+</body>
+
+</html>

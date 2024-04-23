@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Post</title>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+  <div class="container">
+    <div id="post-content"></div>
+  </div>
+
+  <script src="/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const postId = urlParams.get("id");
+
+      // Sample data - replace this with actual data from your backend or API
+      const post = { id: 1, title: "Post Title", content: "Full content of the blog post goes here. It can be as long as necessary." };
+
+      const postContent = document.getElementById("post-content");
+
+      const postElement = document.createElement("div");
+      postElement.classList.add("post");
+
+      const postTitle = document.createElement("h2");
+      postTitle.textContent = post.title;
+
+      const postContentParagraph = document.createElement("p");
+      postContentParagraph.textContent = post.content;
+
+      postElement.appendChild(postTitle);
+      postElement.appendChild(postContentParagraph);
+      postContent.appendChild(postElement);
+    });
+  </script>
+</body>
+
+</html>

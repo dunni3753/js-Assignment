@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validation Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Validation Form</h2>
+  <form id="validationForm" onsubmit="return validateForm()">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="age">Age (should not be less than 25):</label>
+    <input type="number" id="age" name="age" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="error-message"></div>
+
+  <script>
+    function validateForm() {
+      var firstName = document.getElementById('firstName').value;
+      var lastName = document.getElementById('lastName').value;
+      var email = document.getElementById('email').value;
+      var age = document.getElementById('age').value;
+
+      var errorMessage = '';
+
+      if (!/^[a-zA-Z]+$/.test(firstName)) {
+        errorMessage += 'First name should contain only letters.\n';
+      }
+
+      if (!/^[a-zA-Z]+$/.test(lastName)) {
+        errorMessage += 'Last name should contain only letters.\n';
+      }
+
+      if (!/^\S+@\S+\.\S+$/.test(email)) {
+        errorMessage += 'Invalid email address.\n';
+      }
+
+      if (isNaN(age) || age < 25) {
+        errorMessage += 'Age should be 25 or older.\n';
+      }
+
+      if (errorMessage !== '') {
+        document.getElementById('error-message').innerText = errorMessage;
+        return false;
+      }
+
+      // If validation passes, you can perform further actions or submit the form
+      return true;
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+body{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  background-color: black;
+  color: white;
+  height:1000px;
+  
+}
+
+.formBox {
+  justify-content: center;
+margin-right: 450px;
+border-color
+gap: 10px;
+
+}
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  width:70%;
+  border-radius: 5;
+  cursor: pointer;
+  
+    }
+
+input {
+  padding: 8px;
+  border-radius: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  gap:20px;
+
+}
+input:hover{
+  background-color: #afccbe;
+}
+input:active{
+ background-color: #1f2e1f;
+}
+

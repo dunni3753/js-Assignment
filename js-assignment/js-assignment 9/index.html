@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>js assignment 9</h2>
+
+
+  <script>
+    const trees = ["money", "to", "makes", "thank", "book", "the", "man", "tutor", "best", "deal"]
+    const treeT = trees.filter((tee) => tee.startsWith("t"));
+    console.log(treeT);
+
+    const treeE = trees.filter((tee2) => tee2.includes("e"));
+    console.log(treeE);
+
+    let tees = " ";
+    let treesE = "";
+    trees.forEach((treesT) => {
+      if (treesT.charAt(0) == "t") { tees += treesT + " "; }
+    });
+    console.log("We need", tees);
+
+
+    trees.forEach((treesT) => {
+      if (treesT.includes("e")) { treesE += treesT + " "; }
+    });
+    console.log("we all know that", treesE);
+  </script>
+</body>
+
+</html>

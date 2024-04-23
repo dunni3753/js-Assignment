@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic ID Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #idCard {
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="idCard">
+    <h2>ID Card</h2>
+    <p id="name">Name: </p>
+    <p id="designation">Designation: </p>
+    <p id="company">Company: </p>
+  </div>
+
+  <script>
+    function updateIDCard() {
+      const name = document.getElementById('nameInput').value;
+      const designation = document.getElementById('designationInput').value;
+      const company = document.getElementById('companyInput').value;
+
+      document.getElementById('name').innerText = `Name: ${name}`;
+      document.getElementById('designation').innerText = `Designation: ${designation}`;
+      document.getElementById('company').innerText = `Company: ${company}`;
+    }
+  </script>
+
+  <form>
+    <label for="nameInput">Name:</label>
+    <input type="text" id="nameInput" oninput="updateIDCard()" required><br>
+
+    <label for="designationInput">Designation:</label>
+    <input type="text" id="designationInput" oninput="updateIDCard()" required><br>
+
+    <label for="companyInput">Company:</label>
+    <input type="text" id="companyInput" oninput="updateIDCard()" required><br>
+  </form>
+</body>
+
+</html>

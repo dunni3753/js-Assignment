@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Taiwo's Blog</title>
+  </head>
+  <body>
+    <style></style>
+    <nav class="flex mt-[20px] px-10 text-lg font-bold`w-full justify-between">
+      <div class="flex gap-2">
+        <a href=""
+          ><img class="h-[4vh] border-none rounded" src="/assets/logo.png"
+        /></a>
+        <p>TAIWO</p>
+      </div>
+
+      <ul class="flex gap-[100px]">
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+      <div class="text-green-500 flex gap-5">
+        <a href="#"><p>Sign In</p></a>
+        <button class="bg-green-400 text-white w-[110px] border-none rounded">
+          Book Demo
+        </button>
+      </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+    <section class="flex justify-center items-center">
+      <div>
+        <h1 class="flex ml-[110px] font-bold italic text-5xl">
+          Courtside: The Taiwo Blog
+        </h1>
+        <br />
+
+        <p class="font-bold">
+          Discover the newest developments, expert tips, and valuable insights
+          on design systems from and about Taiwo UL
+        </p>
+      </div>
+    </section>
+
+    <div id="blog-posts"></div>
+    <div class="flex gap-5 px-[50px]">
+      <img src="/assets/Group 10.png" alt="" />
+      <img src="/assets/Group 11.png" alt="" />
+      <img src="/assets/Group 12.png" alt="" />
+      <img src="/assets/Group 13.png" alt="" />
+    </div>
+    <script>
+        // Function to slugify a string
+        function slugify(title) {
+          return text
+            .toString()                     // Convert to string
+            .toLowerCase()                  // Convert to lowercase
+            .trim()                         // Trim whitespace
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/[^\w-]+/g, '')        // Remove all non-word chars
+            .replace(/--+/g, '-');          // Replace multiple - with single -
+        }
+      
+        async function getPosts() {
+          let posts = await fetch(
+            "https://6601401a87c91a11641a672f.mockapi.io/posts"
+          )
+            .then((response) => response.json()); // Use response.json() directly to parse JSON
+      
+          let eachDiv = [];
+      
+          posts.forEach((post) => {
+            let slugifiedTitle = slugify(post.title); // Slugify the title
+      
+            eachPost =
+              `<a href="http://127.0.0.1:5500/page2.html?post_id=` +
+              post.id +
+              `" ><section class="flex w-[100%] mt-[30px] p-[30px]">
+                <div class="flex gap-[50px]">
+                  <img class="w-[50%] border-none rounded" src="` +
+              post.image +
+              `" alt="" />
+                  <h1 class="mt-[80px]">
+                    <span class="text-green-600 font-bolder text-2xl">GETTING STARTED</span>
+                    <br />
+                    <br />
+                    <span class="text-red-500 text-4xl font-bold">` +
+              post.title +
+              `</span>
+                    <br />
+                    <br />
+                    ` +
+              post.content +
+              `
+                  </h1>
+                </div>
+              </section>
+            </a>`;
+      
+            eachDiv.push(eachPost);
+          });
+          document.getElementById("blog-posts").innerHTML = eachDiv.join(""); // Use join("") to concatenate array elements into a single string
+        }
+        getPosts();
+      </script>
+      
+    </script>
+  </body>
+</html>
